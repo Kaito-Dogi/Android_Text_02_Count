@@ -17,12 +17,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         //クリックリスナの設定。
-        plusButton.setOnClickListener(OnClickListener())
-        minusButton.setOnClickListener(OnClickListener())
-        clearButton.setOnClickListener(OnClickListener())
+        plusButton.setOnClickListener(ClickListener())
+        minusButton.setOnClickListener(ClickListener())
+        clearButton.setOnClickListener(ClickListener())
     }
 
-    private inner class OnClickListener: View.OnClickListener {
+    private inner class ClickListener: View.OnClickListener {
         override fun onClick(view: View) {
 
             //ボタンのidによる場合分け。
@@ -44,10 +44,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             //countNumの値が3の倍数の時、緑色にする。
-            if (countNum%3 == 0) {
+            if (countNum%3 == 0 && countNum != 0) {
                 numberTextView.setTextColor(ContextCompat.getColor(applicationContext, R.color.teal_700))
             } else {
-                numberTextView.setTextColor(Color.parseColor("#333333"))
+                numberTextView.setTextColor(ContextCompat.getColor(applicationContext, R.color.text))
             }
 
         }
